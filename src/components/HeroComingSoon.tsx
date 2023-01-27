@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Link from "next/link"
 import {
     Box,
@@ -12,70 +13,93 @@ import {
     HStack,
 } from '@chakra-ui/react';
 import { FaInstagram, FaTiktok } from "react-icons/fa"
+import { motion } from "framer-motion";
+
 
 export default function HeroComingSoon() {
+
+    const heroVariant = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, scale: 0 },
+    }
 
     return (
         <>
             <Container maxW={'3xl'}>
-                <Stack
-                    as={Box}
-                    textAlign={'center'}
-                    spacing={{ base: 8, md: 14 }}
-                    py={{ base: 20, md: 36 }}>
-                    <Heading
-                        fontWeight={600}
-                        fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
-                        lineHeight={'110%'} color='secondary'>
-                        <b>Coming Soon</b> <br />
-                        <Text as={'span'} color="primary">
-                            <b>Bestie</b>
-                        </Text>
-                    </Heading>
+                <motion.div
+                    variants={heroVariant}
+                    initial="hidden"
+                    animate="visible"
+                    className="box"
+                >
                     <Stack
-                        direction={'column'}
-                        spacing={3}
-                        align={'center'}
-                        alignSelf={'center'}
-                        position={'relative'}>
-                        <HStack>
-                            <Link href='https://instagram.com/mobekal' target='_blank'>
-                                <Button color='white' bg='instagram' leftIcon={<FaInstagram />} size={{ base: 'xs', sm: 'sm' }}>
-                                    Instagram
-                                </Button>
-                            </Link>
-                            <Link href='https://tiktok.com/mobekal' target='_blank'>
-                                <Button color='white' bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
-                                    Tiktok
-                                </Button>
-                            </Link>
-                        </HStack>
-                        <Link href='https://trakteer.id/mobekal' target='_blank'>
-                            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-                                Trakteer
-                            </Button>
-                        </Link>
-                        <Box>
-                            <Icon
-                                as={Arrow}
-                                color={useColorModeValue('gray.800', 'gray.300')}
-                                w={38}
-                                position={'absolute'}
-                                right={-45}
-                                top={'10px'}
-                            />
-                            <Text
-                                fontSize={'sm'}
-                                color='secondary'
-                                position={'absolute'}
-                                right={'-60px'}
-                                top={'-18px'}
-                                transform={'rotate(20deg)'}>
-                                <b>Follow ya</b>
+                        as={Box}
+                        textAlign={'center'}
+                        spacing={{ base: 8, md: 14 }}
+                        py={{ base: 20, md: 36 }}>
+                        <Heading
+                            fontWeight={600}
+                            fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
+                            lineHeight={'110%'} color='secondary'>
+                            <b>Coming Soon</b> <br />
+                            <Text as={'span'} color="primary">
+                                <b>Bestie</b>
                             </Text>
-                        </Box>
+                        </Heading>
+                        <Stack
+                            direction={'column'}
+                            spacing={3}
+                            align={'center'}
+                            alignSelf={'center'}
+                            position={'relative'}>
+                            <HStack>
+                                <Link href='https://instagram.com/mobekal' target='_blank'>
+                                    <motion.div whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Button colorScheme='white' bg='instagram' leftIcon={<FaInstagram />} size={{ base: 'xs', sm: 'sm' }}>
+                                            Instagram
+                                        </Button>
+                                    </motion.div>
+                                </Link>
+                                <Link href='https://tiktok.com/mobekal' target='_blank'>
+                                    <motion.div whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Button colorScheme="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
+                                            Tiktok
+                                        </Button>
+                                    </motion.div>
+                                </Link>
+                            </HStack>
+                            <Link href='https://trakteer.id/mobekal' target='_blank'>
+                                <motion.div whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}>
+                                    <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+                                        Trakteer
+                                    </Button>
+                                </motion.div>
+                            </Link>
+                            <Box>
+                                <Icon
+                                    as={Arrow}
+                                    color={useColorModeValue('gray.800', 'gray.300')}
+                                    w={38}
+                                    position={'absolute'}
+                                    right={-45}
+                                    top={'10px'}
+                                />
+                                <Text
+                                    fontSize={'sm'}
+                                    color='secondary'
+                                    position={'absolute'}
+                                    right={'-60px'}
+                                    top={'-18px'}
+                                    transform={'rotate(20deg)'}>
+                                    <b>Follow ya</b>
+                                </Text>
+                            </Box>
+                        </Stack>
                     </Stack>
-                </Stack>
+                </motion.div>
             </Container>
         </>
     );
