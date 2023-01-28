@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mobekal | Warteg In Your Pocket</title>
+        <title>Mobekal</title>
         <meta name="description" content="Warteg In Your Pocket" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

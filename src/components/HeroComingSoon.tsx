@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Link from "next/link"
 import {
     Box,
@@ -38,12 +37,12 @@ export default function HeroComingSoon() {
                         spacing={{ base: 8, md: 14 }}
                         py={{ base: 20, md: 36 }}>
                         <Heading
-                            fontWeight={600}
+                            fontWeight={900}
                             fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
-                            lineHeight={'110%'} color='secondary'>
-                            <b>Coming Soon</b> <br />
+                            lineHeight={'100%'} color='secondary'>
+                            Coming Soon <br />
                             <Text as={'span'} color="primary">
-                                <b>Bestie</b>
+                                Bestie
                             </Text>
                         </Heading>
                         <Stack

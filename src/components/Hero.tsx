@@ -1,3 +1,4 @@
+import Link from "next/link"
 import {
     Box,
     Heading,
@@ -5,74 +6,98 @@ import {
     Text,
     Button,
     Stack,
+    HStack,
     Icon,
     useColorModeValue,
     createIcon,
 } from '@chakra-ui/react';
+import { FaInstagram, FaTiktok } from "react-icons/fa"
+import { motion } from "framer-motion";
 
 export default function CallToActionWithAnnotation() {
+
+    const heroVariant = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, scale: 0 },
+    }
 
     return (
         <>
             <Container maxW={'3xl'}>
-                <Stack
-                    as={Box}
-                    textAlign={'center'}
-                    spacing={{ base: 8, md: 14 }}
-                    py={{ base: 20, md: 36 }}>
-                    <Heading
-                        fontWeight={600}
-                        fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
-                        lineHeight={'110%'} color='secondary'>
-                        Warteg In <br />
-                        <Text as={'span'} color="primary">
-                            Your Pocket
-                        </Text>
-                    </Heading>
-                    <Text color={'gray.500'}>
-                        Monetize your content by charging your most loyal readers and reward
-                        them loyalty points. Give back to your loyal readers by granting
-                        them access to your pre-releases and sneak-peaks.
-                    </Text>
+                <motion.div
+                    variants={heroVariant}
+                    initial="hidden"
+                    animate="visible"
+                    className="box"
+                >
                     <Stack
-                        direction={'column'}
-                        spacing={3}
-                        align={'center'}
-                        alignSelf={'center'}
-                        position={'relative'}>
-                        <Button
-                            colorScheme={'primary'}
-                            bg={'primary'}
-                            px={6}
-                            _hover={{
-                                bg: 'primary',
-                            }}>
-                            Get Started
-                        </Button>
-                        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-                            Learn more
-                        </Button>
-                        <Box>
-                            <Icon
-                                as={Arrow}
-                                color={useColorModeValue('gray.800', 'gray.300')}
-                                w={71}
-                                position={'absolute'}
-                                right={-71}
-                                top={'10px'}
-                            />
-                            <Text
-                                fontSize={'lg'}
-                                fontFamily={'Caveat'}
-                                position={'absolute'}
-                                right={'-125px'}
-                                top={'-15px'}
-                                transform={'rotate(10deg)'}>
-                                Starting at $15/mo
+                        as={Box}
+                        textAlign={'center'}
+                        spacing={{ base: 8, md: 14 }}
+                        py={{ base: 20, md: 36 }}>
+                        <Heading
+                            fontWeight={900}
+                            fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
+                            lineHeight={'100%'} color='secondary'>
+                            Warteg In <br />
+                            <Text as={'span'} color="primary">
+                                Your Pocket
                             </Text>
-                        </Box>
+                        </Heading>
+                        <Stack
+                            direction={'column'}
+                            spacing={3}
+                            align={'center'}
+                            alignSelf={'center'}
+                            position={'relative'}>
+                            <HStack>
+                                <Link href='https://instagram.com/mobekal' target='_blank'>
+                                    <motion.div whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Button colorScheme='white' bg='instagram' leftIcon={<FaInstagram />} size={{ base: 'xs', sm: 'sm' }}>
+                                            Instagram
+                                        </Button>
+                                    </motion.div>
+                                </Link>
+                                <Link href='https://tiktok.com/mobekal' target='_blank'>
+                                    <motion.div whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Button colorScheme="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
+                                            Tiktok
+                                        </Button>
+                                    </motion.div>
+                                </Link>
+                            </HStack>
+                            <Link href='https://trakteer.id/mobekal' target='_blank'>
+                                <motion.div whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}>
+                                    <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+                                        Trakteer
+                                    </Button>
+                                </motion.div>
+                            </Link>
+                            <Box>
+                                <Icon
+                                    as={Arrow}
+                                    color={useColorModeValue('gray.800', 'gray.300')}
+                                    w={38}
+                                    position={'absolute'}
+                                    right={-45}
+                                    top={'10px'}
+                                />
+                                <Text
+                                    fontSize={'sm'}
+                                    color='secondary'
+                                    position={'absolute'}
+                                    right={'-60px'}
+                                    top={'-18px'}
+                                    transform={'rotate(20deg)'}>
+                                    <b>Follow ya</b>
+                                </Text>
+                            </Box>
+                        </Stack>
                     </Stack>
-                </Stack>
+                </motion.div>
             </Container>
         </>
     );
