@@ -60,7 +60,7 @@ export default function HeroComingSoon() {
                                         </Button>
                                     </motion.div>
                                 </Link>
-                                <Link href='https://tiktok.com/mobekal' target='_blank'>
+                                <Link href='https://tiktok.com/@mobekal' target='_blank'>
                                     <motion.div whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
                                         <Button colorScheme="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>

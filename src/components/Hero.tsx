@@ -54,7 +54,7 @@ export default function CallToActionWithAnnotation() {
                                 <Link href='https://instagram.com/mobekal' target='_blank'>
                                     <motion.div whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
-                                        <Button colorScheme='white' bg='instagram' leftIcon={<FaInstagram />} size={{ base: 'xs', sm: 'sm' }}>
+                                        <Button color='white' bg='instagram' leftIcon={<FaInstagram />} size={{ base: 'xs', sm: 'sm' }}>
                                             Instagram
                                         </Button>
                                     </motion.div>
@@ -62,13 +62,13 @@ export default function CallToActionWithAnnotation() {
                                 <Link href='https://tiktok.com/mobekal' target='_blank'>
                                     <motion.div whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
-                                        <Button colorScheme="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
+                                        <Button color="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
                                             Tiktok
                                         </Button>
                                     </motion.div>
                                 </Link>
                             </HStack>
-                            <Link href='https://trakteer.id/mobekal' target='_blank'>
+                            <Link href='https://trakteer.id/@mobekal' target='_blank'>
                                 <motion.div whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}>
                                     <Button variant={'link'} colorScheme={'blue'} size={'sm'}>

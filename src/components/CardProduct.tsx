@@ -1,90 +1,90 @@
 import {
-  Flex,
-  Circle,
   Box,
-  Image,
-  Badge,
   useColorModeValue,
+  VStack,
+  Text,
+  HStack,
+  Tag,
   Icon,
-  chakra,
+  Flex,
   Tooltip,
+  Image
 } from '@chakra-ui/react';
-import { FiShoppingCart } from 'react-icons/fi';
+import { ImSpoonKnife } from 'react-icons/im';
+
+type Variant = {
+  id: string;
+  name: string;
+  color: string;
+}
 
 type CardProductProps = {
-  isNew: boolean
-  imageURL: string
-  name: string
-  price: number
-  rating: number
-  numReviews: number
+  title: string;
+  description: string;
+  url: string;
+  language: string;
+  stargazers_count: number;
+  forks_count: number;
+  img_url: string;
+  variants: Array<Variant>;
 };
 
 
-function CardProduct({ isNew, imageURL, name, price, rating, numReviews }: CardProductProps) {
+function CardProduct({ title, description, language, img_url, variants }: CardProductProps) {
+
   return (
     <Box
-      bg={useColorModeValue('white', 'gray.800')}
-      maxW="sm"
+      py={2}
+      px={2.5}
+      rounded="xl"
       borderWidth="1px"
-      rounded="lg"
-      shadow="lg"
-      position="relative">
-      {isNew && (
-        <Circle
-          size="10px"
-          position="absolute"
-          top={2}
-          right={2}
-          bg="red.200"
-        />
-      )}
-
+      bg={useColorModeValue('white', 'gray.800')}
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
+      _hover={{
+        shadow: 'lg',
+        textDecoration: 'none'
+      }}
+      display='flex'
+      alignItems='center'
+      gap={4}
+    >
       <Image
-        src={imageURL}
-        alt={`Picture of ${name}`}
-        roundedTop="lg"
+        rounded={'lg'}
+        height={85}
+        width={85}
+        src={img_url}
+        alt={title}
       />
-
-      <Box p="6">
-        <Box display="flex" alignItems="baseline">
-          {isNew && (
-            <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-              New
-            </Badge>
-          )}
+      <VStack overflow="hidden" align="start" spacing={1}>
+        <VStack spacing={1} align="start" w="100%">
+          <Flex
+            justifyContent="space-between"
+            width="100%"
+          >
+            <Tooltip hasArrow label="Github link" placement="top">
+              <HStack cursor="pointer">
+                <Icon as={ImSpoonKnife} boxSize="0.9em" mt="1px" />
+                <Text fontSize="sm" colorScheme='secondary' noOfLines={1} fontWeight="600" align="left">
+                  {title}
+                </Text>
+              </HStack>
+            </Tooltip>
+          </Flex>
+          <HStack spacing={1}>
+            {variants?.map((variant, index) => (
+              <Tag key={index} size="sm" bg={variant.color} color='white'>
+                <Text fontSize={['0.6rem']}>{variant.name}</Text>
+              </Tag>
+            ))}
+          </HStack>
+        </VStack>
+        <Box pt={2}>
+          <Text color="gray.500" fontSize="xs" noOfLines={2} lineHeight={4} textAlign="left">
+            {description}
+          </Text>
         </Box>
-        <Flex mt="1" justifyContent="space-between" alignContent="center">
-          <Box
-            fontSize="2xl"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            isTruncated>
-            {name}
-          </Box>
-          <Tooltip
-            label="Add to cart"
-            bg="white"
-            placement={'top'}
-            color={'gray.800'}
-            fontSize={'1.2em'}>
-            <chakra.a href={'#'} display={'flex'}>
-              <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-            </chakra.a>
-          </Tooltip>
-        </Flex>
 
-        <Flex justifyContent="space-between" alignContent="center">
-          {/* <Rating rating={rating} numReviews={numReviews} /> */}
-          <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-            <Box as="span" color={'gray.600'} fontSize="lg">
-              £
-            </Box>
-            {price.toFixed(2)}
-          </Box>
-        </Flex>
-      </Box>
+      </VStack>
     </Box>
   );
 }

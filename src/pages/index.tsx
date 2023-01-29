@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
 import HeroComingSoon from "../components/HeroComingSoon"
 import Products from "../components/Products"
+import Pricing from "../components/Pricing"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function Home() {
       {/* <Hero /> */}
       <HeroComingSoon />
       {/* <Products /> */}
+      {/* <Pricing /> */}
     </>
   )
 }
