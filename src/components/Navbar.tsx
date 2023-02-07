@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   Box,
   Flex,
   Button,
-  useColorModeValue,
   Stack,
   useColorMode,
 } from '@chakra-ui/react';
@@ -17,7 +17,9 @@ export default function Nav() {
       <Box px={{ base: 4, sm: 14, md: 36 }}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box>
-            <Image src="/logo.svg" width={130} height={50} alt="Logo Mobekal" />
+            <Link href='/'>
+              <Image src="/logo.svg" width={130} height={50} alt="Logo Mobekal" priority />
+            </Link>
           </Box>
 
           <Flex alignItems={'center'}>

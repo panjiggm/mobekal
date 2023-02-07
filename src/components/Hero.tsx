@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import {
     Box,
     Heading,
@@ -14,6 +15,8 @@ import {
 import { FaInstagram, FaTiktok } from "react-icons/fa"
 import { motion } from "framer-motion";
 
+// import { MotionBox, MotionFlex } from "@/utils/motion";
+
 export default function CallToActionWithAnnotation() {
 
     const heroVariant = {
@@ -23,7 +26,7 @@ export default function CallToActionWithAnnotation() {
 
     return (
         <>
-            <Container maxW={'3xl'}>
+            <Container maxW={'3xl'} height={{ base: '60vh', md: '85vh' }}>
                 <motion.div
                     variants={heroVariant}
                     initial="hidden"
@@ -34,11 +37,13 @@ export default function CallToActionWithAnnotation() {
                         as={Box}
                         textAlign={'center'}
                         spacing={{ base: 8, md: 14 }}
-                        py={{ base: 20, md: 36 }}>
+                        pt={{ base: 20, md: 36 }}
+                    >
                         <Heading
                             fontWeight={900}
                             fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}
-                            lineHeight={'100%'} color='secondary'>
+                            _dark={{ color: 'gray.200' }}
+                            lineHeight={'100%'} color='secondary' >
                             Warteg In <br />
                             <Text as={'span'} color="primary">
                                 Your Pocket
@@ -51,6 +56,14 @@ export default function CallToActionWithAnnotation() {
                             alignSelf={'center'}
                             position={'relative'}>
                             <HStack>
+                                <Link href='https://shopee.co.id/mobekal' target='_blank'>
+                                    <motion.div whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}>
+                                        <Box>
+                                            <Image src='/img/shopee-logo.png' height={32} width={32} alt='Shopee Logo' />
+                                        </Box>
+                                    </motion.div>
+                                </Link>
                                 <Link href='https://instagram.com/mobekal' target='_blank'>
                                     <motion.div whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
@@ -59,7 +72,7 @@ export default function CallToActionWithAnnotation() {
                                         </Button>
                                     </motion.div>
                                 </Link>
-                                <Link href='https://tiktok.com/mobekal' target='_blank'>
+                                <Link href='https://tiktok.com/@mobekal' target='_blank'>
                                     <motion.div whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}>
                                         <Button color="white" bg='tiktok' leftIcon={<FaTiktok />} size={{ base: 'xs', sm: 'sm' }}>
@@ -68,7 +81,7 @@ export default function CallToActionWithAnnotation() {
                                     </motion.div>
                                 </Link>
                             </HStack>
-                            <Link href='https://trakteer.id/@mobekal' target='_blank'>
+                            <Link href='https://trakteer.id/mobekal' target='_blank'>
                                 <motion.div whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}>
                                     <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
@@ -86,11 +99,12 @@ export default function CallToActionWithAnnotation() {
                                     top={'10px'}
                                 />
                                 <Text
-                                    fontSize={'sm'}
+                                    fontSize='xs'
                                     color='secondary'
+                                    _dark={{ color: 'gray.200' }}
                                     position={'absolute'}
                                     right={'-60px'}
-                                    top={'-18px'}
+                                    top={'-12px'}
                                     transform={'rotate(20deg)'}>
                                     <b>Follow ya</b>
                                 </Text>
