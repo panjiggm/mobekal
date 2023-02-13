@@ -44,8 +44,8 @@ const Features = () => {
     return (
         <Container maxW={'5xl'} p={{ base: 5, md: 12 }} my={20}>
             <Box>
-                <MotionScroll>
-                    <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10}>
+                <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10}>
+                    <MotionScroll>
                         <Feature
                             icon={<Icon as={GiReceiveMoney} w={10} h={10} />}
                             title={'Terjangkau'}
@@ -53,6 +53,8 @@ const Features = () => {
                             colorIcon="#B7791F"
                             bgIcon="#FEFCBF"
                         />
+                    </MotionScroll>
+                    <MotionScroll>
                         <Feature
                             icon={<Icon as={IoLeaf} w={10} h={10} />}
                             title={'Fresh'}
@@ -60,6 +62,8 @@ const Features = () => {
                             colorIcon="#4B9A71"
                             bgIcon="#C6F6D5"
                         />
+                    </MotionScroll>
+                    <MotionScroll>
                         <Feature
                             icon={<Icon as={GiTongue} w={10} h={10} />}
                             title={'Enak'}
@@ -67,6 +71,8 @@ const Features = () => {
                             colorIcon="#C53030"
                             bgIcon="#FED7D7"
                         />
+                    </MotionScroll>
+                    <MotionScroll>
                         <Feature
                             icon={<Icon as={GiSchoolBag} w={10} h={10} />}
                             title={'Praktis'}
@@ -74,8 +80,8 @@ const Features = () => {
                             colorIcon="#2B6CB0"
                             bgIcon="#BEE3F8"
                         />
-                    </SimpleGrid>
-                </MotionScroll>
+                    </MotionScroll>
+                </SimpleGrid>
             </Box>
         </Container>
     )

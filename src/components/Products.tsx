@@ -22,18 +22,20 @@ const Products = ({ products }: ProductsProps) => {
                             Pilih menu <Text as='span' fontWeight='600'>Warteg</Text> favorit kamu
                         </Text>
                     </Box>
+                </MotionScroll>
 
-                    <SimpleGrid spacing={4} minChildWidth={250}>
-                        {products.map((product, index) => {
-                            return (
-                                <CardProduct
-                                    key={index}
-                                    {...product}
-                                />
-                            )
-                        })}
-                    </SimpleGrid>
+                <SimpleGrid spacing={4} minChildWidth={250}>
+                    {products.map((product, index) => {
+                        return (
+                            <CardProduct
+                                key={index}
+                                {...product}
+                            />
+                        )
+                    })}
+                </SimpleGrid>
 
+                <MotionScroll>
                     <Box w='full'>
                         <Text mt={[4, 6, 10]} fontSize='sm' colorScheme="gray.600">
                             * Menu lainya akan segera menyusul

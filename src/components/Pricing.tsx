@@ -87,14 +87,14 @@ const Pricing = () => {
                                 </Box>
                             </MotionScroll>
                             <Box>
-                                <MotionScroll>
-                                    <SimpleGrid
-                                        columns={[1, 1, 2]}
-                                        gap="24px"
-                                        rounded="md"
-                                        mx={[2, 6, 10, 24]}
-                                        textAlign="left"
-                                    >
+                                <SimpleGrid
+                                    columns={[1, 1, 2]}
+                                    gap="24px"
+                                    rounded="md"
+                                    mx={[2, 6, 10, 24]}
+                                    textAlign="left"
+                                >
+                                    <MotionScroll>
                                         <Box
                                             bg="white"
                                             _dark={{ bg: "gray.800" }}
@@ -174,6 +174,8 @@ const Pricing = () => {
                                                 </Flex>
                                             </Flex>
                                         </Box>
+                                    </MotionScroll>
+                                    <MotionScroll>
                                         <Box
                                             bg="white"
                                             _dark={{ bg: "gray.800" }}
@@ -253,8 +255,8 @@ const Pricing = () => {
                                                 </Flex>
                                             </Flex>
                                         </Box>
-                                    </SimpleGrid>
-                                </MotionScroll>
+                                    </MotionScroll>
+                                </SimpleGrid>
                                 <MotionScroll>
                                     <Flex
                                         mb="100px"
